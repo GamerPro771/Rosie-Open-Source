@@ -24,7 +24,7 @@ client.on('message', async (message) => {
 	.slice(config.prefix.length)
 	.split(/ +/g);
   
-  const commands = require('./commandsrun'); //cria um caminho até o arquivo executor de comandos
+  const commands = require('./commandsrun'); //cria um caminho até o arquivo executor de comandos REQUER O ARQUVO commandsrun.js
   commands.run(client, message, args); //exporta os itens do index para o arquivo
 });
 
