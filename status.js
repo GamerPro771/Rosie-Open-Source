@@ -10,9 +10,9 @@ exports.run = async (client) => { //Importa os itens do index.js
 i = 0;
 setInterval(() => client.user.setActivity(`${atividades[i++ % atividades.length]}`,{
   type: 'WATCHING' // Tipo do status
-}, 30000); //Intervalo da troca em milisegungos (30000 = 30 segundos)
+}, 10 * 60 * 1000); // Intervalo para a troca de status exemplo: 25 * 60 * 1000 = 25 minutos
 
-console.log('Estou online!') //Loga que está online
+ console.log('Estou online!') //Loga que está online
 }
 
 
