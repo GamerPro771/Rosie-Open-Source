@@ -23,4 +23,4 @@ if (lastcommand.has(message.author.id) && message.author.id != "ID DO DONO DO BO
 //As linhas de codigo abaixo devem ser adicionadas ao index.js e removidas daqui!
 
 const commandtimer = require('./command-timer.js') //Requer o arquivo command-timer.js
-commandtimer.run(client, message, args, clientCommands, clientPremiumCommands)
+commandtimer.run(client, message, args)
