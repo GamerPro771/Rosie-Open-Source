@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const lastcommand = new Set();
 
-exports.run = async (client, message, args, clientCommands, clientPremiumCommands) => {
+exports.run = async (client, message, args) => {
 if (lastcommand.has(message.author.id) && message.author.id != "ID DO DONO DO BOT") {
     msg = await message.channel.send(`**❌ ${message.author} espere 3 segundos para executar outro comando!**`),
      setTimeout(() => {
