@@ -17,6 +17,20 @@ app.listen(PORT, () => {
 const client = new Discord.Client() //cria um client (BOT),
 const config = require('./config.json'); //arquivo do prefixo do bot REQUER O ARQUIVO config.josn,
 
+const Discord = require('discord.js');
+const fs = require('fs');
+const clientCommands = new Discord.Collection();
+const clientPremiumCommands = new Discord.Collection();
+
+const clientCommands = new Discord.Collection();
+const Commands = await fs.readdirSync(`Directorio para a sua pasta de Comandos`).filter(file => file.endsWith('.js'));
+
+//Pega cada um dos seus comandos e adiciona a um Set
+for (const file of Commands) {
+	const command = require(`../Comandos/Commands-br/${Brfile}`);
+	clientCommands.set(command.name, command);
+};
+
 //Detecta quando uma mensagem é enviada
 client.on('message', async (message) => {
   const args = message.content
@@ -25,7 +39,7 @@ client.on('message', async (message) => {
   .split(/ +/g);
   
   const commands = require('./commandsrun'); //cria um caminho até o arquivo executor de comandos REQUER O ARQUVO commandsrun.js,
-  commands.run(client, message, args); //exporta os itens do index para a função "run" do arquivo commandsrun.js,
+  commands.run(client, message, args, clientCommands); //exporta os itens do index para a função "run" do arquivo commandsrun.js,
 });
 
 //Daqui para baixo pode se adicionar mais linhas de codigo,
