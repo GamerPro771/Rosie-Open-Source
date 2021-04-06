@@ -1,0 +1,20 @@
+const Discord = require('discord.js');
+
+const Unknown = require('./Unknown-Command.js');
+const Error = require('./Error-Command.js');
+const NoPremiun = require('./No-Premiun.js');
+
+exports.run = async (client, message, args, clientCommands, clientPremiumCommands) => {
+        message.delete()
+
+        const commandName = args.shift().toLowerCase()
+
+        const command = clientCommands.get(commandName) ||
+                clientCommands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
+
+        if (command != null) {
+                command.run(client, message, args).catch(err => console.log(err));
+        }
+
+        else message.channel.send(`${message.author} o comando escrito não é valido!`)
+}
