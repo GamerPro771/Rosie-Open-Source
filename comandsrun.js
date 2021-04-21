@@ -1,9 +1,5 @@
 const Discord = require('discord.js');
 
-const Unknown = require('./Unknown-Command.js');
-const Error = require('./Error-Command.js');
-const NoPremiun = require('./No-Premiun.js');
-
 exports.run = async (client, message, args, clientCommands, clientPremiumCommands) => {
         message.delete()
 
