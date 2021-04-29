@@ -16,7 +16,7 @@ module.run = async (client, message, args) => {
 
                 if (!webhook) {
 
-                        channel.createWebhook("Sensei Arlindinho", {
+                        channel.createWebhook("Nome do webhook", {
                                 avatar: "", //Avatar do webhook
                                 reason: `` //Rasão do webhook ter sido criado
                         })
