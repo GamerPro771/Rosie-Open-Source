@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-module.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
                 const channel = message.channel
 
                 const webhooks = await channel.fetchWebhooks();
