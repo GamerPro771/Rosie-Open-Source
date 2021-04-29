@@ -23,7 +23,7 @@ const clientCommands = new Discord.Collection();
 const clientPremiumCommands = new Discord.Collection();
 
 const clientCommands = new Discord.Collection();
-const Commands = await fs.readdirSync(`Directorio para a sua pasta de Comandos`).filter(file => file.endsWith('.js'));
+const Commands = await fs.readdirSync(`./Commands`).filter(file => file.endsWith('.js'));
 
 //Pega cada um dos seus comandos e adiciona a um Set
 for (const file of Commands) {
