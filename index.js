@@ -10,9 +10,7 @@ app.get('/', (request, response) => {
    response.sendStatus(200) //Envia o status 200 (ok),
 });
 
-app.listen(PORT, () => {
-  console.log(`Estou Online!)
-});
+app.listen(PORT);
 
 const client = new Discord.Client() //cria um client (BOT),
 const config = require('./config.json'); //arquivo do prefixo do bot REQUER O ARQUIVO config.josn,
@@ -36,6 +34,11 @@ client.on('message', async (message) => {
   
   const commands = require('./commandsrun'); //cria um caminho até o arquivo executor de comandos REQUER O ARQUVO commandsrun.js,
   commands.run(client, message, args, clientCommands); //Roda a função "run" com os argumentos do index
+});
+
+client.on('ready', () => {
+    const status = require('./status.js'); //Requer o arquivo status.js
+    status.run(client);
 });
 
 //Daqui para baixo pode se adicionar mais linhas de codigo.
