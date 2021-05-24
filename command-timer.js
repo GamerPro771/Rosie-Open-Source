@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const lastcommand = new Set();
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, commandsList) => {
 if (lastcommand.has(message.author.id) && message.author.id != "ID DO DONO DO BOT") {
     msg = await message.channel.send(`**❌ ${message.author} espere 3 segundos para executar outro comando!**`),
      setTimeout(() => {
@@ -12,7 +12,7 @@ if (lastcommand.has(message.author.id) && message.author.id != "ID DO DONO DO BO
     
     //As linhas aqui abaixo ja existem nos index.js, remova as do index
     const commandsrun = require('./Command-Run.js');
-    commandsrun.run(client, message, args)
+    commandsrun.run(client, message, args, commandsList)
 
     setTimeout(() => {
       lastcommand.delete(message.author.id)
