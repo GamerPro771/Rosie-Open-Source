@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-exports.run = async (client, message, args, clientCommands, clientPremiumCommands) => {
+exports.run = async (client, message, args, clientCommands) => {
         message.delete()
 
         const commandName = args.shift().toLowerCase()
