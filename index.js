@@ -27,13 +27,16 @@ for (const file of Commands) {
 };
 
 client.on('message', async (message) => {
-  const args = message.content
-  .trim()
-  .slice(config.prefix.length)
-  .split(/ +/g);
+  	const args = message.content
+  		.trim()
+  		.slice(config.prefix.length)
+  		.split(/ +/g);
   
-  const commandtimer = require('./command-timer.js') //Requer o arquivo command-timer.js
-  commandtimer.run(client, message, args)
+  	const commandtimer = require('./command-timer.js') //Requer o arquivo command-timer.js
+  	commandtimer.run(client, message, args)
+	
+	const autoreply = require('./Auto-Reply.js'); //REQUER O ARQUIVO Auto-Reply.js
+	autoreply(client, message);
 });
 
 client.on('ready', () => {
