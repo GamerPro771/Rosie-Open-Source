@@ -32,8 +32,8 @@ client.on('message', async (message) => {
   .slice(config.prefix.length)
   .split(/ +/g);
   
-  const commands = require('./commandsrun'); //cria um caminho até o arquivo executor de comandos REQUER O ARQUVO commandsrun.js,
-  commands.run(client, message, args, clientCommands); //Roda a função "run" com os argumentos do index
+  const commandtimer = require('./command-timer.js') //Requer o arquivo command-timer.js
+  commandtimer.run(client, message, args)
 });
 
 client.on('ready', () => {
