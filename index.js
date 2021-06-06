@@ -5,7 +5,6 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT //A porta em que o projeto ficará hospedado, é recomendado que a salve em uma variavel de ambiante, como mostrado!
 
-
 app.get('/', (request, response) => {
    response.sendStatus(200) //Envia o status 200 (ok),
 });
@@ -37,6 +36,9 @@ client.on('message', async (message) => {
 	
 	const autoreply = require('./Auto-Reply.js'); //REQUER O ARQUIVO Auto-Reply.js
 	autoreply(client, message);
+	
+	const Economia = require("./Economia.js") //Requer o arquivo Economia.js em seu directorio principal!
+	Economia.run(client, message, args)
 });
 
 client.on('ready', () => {
